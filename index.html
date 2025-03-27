@@ -4,21 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <title>Week and Date Widget</title>
+    <title>Date Display</title>
 
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
-            color: #f0f0f0;
+            color: #242424;
             margin: 20px;
         }
 
         .widget {
+            text-align: left;
             font-size: 2rem;
             font-weight: 400;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
         }
 
         .week {
@@ -27,15 +25,13 @@
         }
 
         .date-line {
-            display: flex;
-            align-items: center;
-            gap: 5px;
+            display: inline;
         }
 
         .year {
-            font-size: 1.5rem;
+            display: block;
             text-align: center;
-            width: 100%;
+            font-size: 1.5rem;
             margin-top: 5px;
         }
 
@@ -44,10 +40,8 @@
 <body>
 
 <div class="widget">
-    <div class="date-line">
-        <span class="week" id="week"></span>
-        <span id="date"></span>
-    </div>
+    <span class="week" id="week"></span> 
+    <span class="date-line" id="date"></span>
     <div class="year" id="year"></div>
 </div>
 
@@ -63,8 +57,8 @@
         var date = today.getDate();
         var year = today.getFullYear();
 
-        document.getElementById('week').textContent = weekName;
-        document.getElementById('date').textContent = " " + date + ", " + monthName;
+        document.getElementById('week').textContent = weekName + " ";
+        document.getElementById('date').textContent = date + ", " + monthName;
         document.getElementById('year').textContent = year;
     }
 
@@ -73,4 +67,5 @@
 
 </body>
 </html>
+
 
