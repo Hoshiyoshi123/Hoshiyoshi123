@@ -8,37 +8,33 @@
 
     <style>
         body {
-            font-variant-caps: all-small-caps;
             font-family: 'Montserrat', sans-serif;
-            width: 16rem;
+            background-color: #121212;
             color: #f0f0f0;
+            text-transform: capitalize;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
         .widget {
-            padding: 5px 5px;
-            display: flex;
-            justify-content: center;
-            align-items: baseline;
-            max-width: 100%;
+            font-size: 2rem;
+            font-weight: 400;
         }
 
         .week {
-            font-size: 2.2rem;
-            text-decoration: underline;
             font-weight: 700;
-        }
-
-        .date {
-            font-size: 1.5rem;
-            color: #f0f0f0;
+            text-decoration: underline;
         }
 
     </style>
 </head>
 <body>
+
 <div class="widget">
-    <div class="week" id="week"></div>
-    <div class="date" id="date"></div>
+    <span class="week" id="week"></span>,
+    <span id="date"></span>
 </div>
 
 <script>
@@ -51,15 +47,17 @@
         var weekName = WEEK[today.getDay()];
         var monthName = MONTH[today.getMonth()];
         var date = today.getDate();
-        var year = today.getFullYear();
-        var weekDisplay = document.getElementById('week');
-        var dateDisplay = document.getElementById('date');
-        weekDisplay.innerHTML = weekName;
-        dateDisplay.innerHTML = "&emsp;" + date + ", " + monthName + " " + year;
+
+        document.getElementById('week').textContent = weekName;
+        document.getElementById('date').textContent = date + ", " + monthName;
     }
 
     widgetDisplay();
 </script>
+
+</body>
+</html>
+
 
 </body>
 </html>
