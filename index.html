@@ -9,18 +9,16 @@
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #121212;
-            color: #f0f0f0;
-            text-transform: capitalize;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            color: #f2f2f2;
+            margin: 20px; /* Moves it to the upper left */
         }
 
         .widget {
             font-size: 2rem;
             font-weight: 400;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
         .week {
@@ -28,13 +26,28 @@
             text-decoration: underline;
         }
 
+        .date-line {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .year {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-top: 5px;
+        }
+
     </style>
 </head>
 <body>
 
 <div class="widget">
-    <span class="week" id="week"></span>,
-    <span id="date"></span>
+    <div class="date-line">
+        <span class="week" id="week"></span>,
+        <span id="date"></span>
+    </div>
+    <div class="year" id="year"></div>
 </div>
 
 <script>
@@ -47,9 +60,11 @@
         var weekName = WEEK[today.getDay()];
         var monthName = MONTH[today.getMonth()];
         var date = today.getDate();
+        var year = today.getFullYear();
 
         document.getElementById('week').textContent = weekName;
         document.getElementById('date').textContent = date + ", " + monthName;
+        document.getElementById('year').textContent = year;
     }
 
     widgetDisplay();
@@ -57,7 +72,6 @@
 
 </body>
 </html>
-
 
 </body>
 </html>
